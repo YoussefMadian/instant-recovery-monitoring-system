@@ -1,0 +1,63 @@
+Power Automate – Instant Recovery Notification Flow
+--------------------------------------------------
+
+Flow Name:
+Instant Recovery Notification
+
+Purpose:
+Automatically notify IT managers when a new Instant Recovery test result
+is submitted, with different email formats based on recovery status.
+
+Trigger:
+- SharePoint: When an item is created or modified
+- List: Instant Recovery Log
+
+Logic Overview:
+- Read the Status choice field from SharePoint
+- Use a Switch control to handle different statuses
+- Build a formatted HTML email
+- Send notification to managers and support teams
+
+Status Handling:
+- Successful:
+  - Green color indicator
+  - Informational email
+- Warning:
+  - Orange color indicator
+  - Alert email
+- Failed:
+  - Red color indicator
+  - Critical alert email
+
+Key Expressions:
+- Status Value:
+  triggerBody()?['Status']?['Value']
+
+- Color Switch Example:
+  switch(
+    triggerBody()?['Status']?['Value'],
+    'Successful', '#2e7d32',
+    'Failed', '#d32f2f',
+    'Warning', '#ff8f00'
+  )
+
+Email Details:
+- To:
+  - IT Infrastructure Manager
+  - Service Desk Manager
+- CC:
+  - IT Support Team
+  - HO Support Team
+
+Email Content:
+- HTML table with:
+  - VM Name
+  - Date
+  - IT Member
+  - Status (color-coded)
+  - Comment
+
+Outcome:
+- Ensures instant visibility of recovery test results
+- Reduces manual follow-up
+- Provides audit trail via email and SharePoint logs
