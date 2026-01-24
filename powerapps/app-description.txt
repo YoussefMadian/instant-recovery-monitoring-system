@@ -1,0 +1,40 @@
+Power Apps – Instant Recovery Monitoring App
+------------------------------------------------
+
+This Power Apps application is designed to allow IT Support members to record
+Instant Recovery test results for virtual machines (VMs) in a structured and
+user-friendly way.
+
+Purpose:
+- Provide a simple and consistent data entry form for recovery tests
+- Automatically capture the logged-in IT member
+- Submit recovery data directly to SharePoint for auditing and reporting
+
+Main Features:
+- Connected to SharePoint list: "Instant Recovery Log"
+- Auto-fills IT Member field using User().FullName
+- Input fields:
+  - VM Name (Text)
+  - Backup Date (Date Picker)
+  - Restore Test Date (Date Picker)
+  - Status (Dropdown linked to SharePoint Choice field)
+  - Comment (Multiline Text)
+  - Attachments (Screenshots / Reports)
+- Submit button uses SubmitForm() to save data
+
+Key Power Apps Functions Used:
+- User().FullName
+- SubmitForm(Form1)
+- ResetForm(Form1)
+
+User Flow:
+1. IT member opens the app
+2. Fills in VM and recovery details
+3. Selects recovery status (Successful / Warning / Failed)
+4. Attaches evidence if needed
+5. Submits the form
+6. Data is saved to SharePoint and triggers Power Automate
+
+Security:
+- Access controlled by SharePoint permissions
+- Only authorized IT members can submit records
