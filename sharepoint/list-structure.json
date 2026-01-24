@@ -1,0 +1,56 @@
+{
+  "ListName": "Instant Recovery Log",
+  "Description": "Central repository for Instant Recovery test results",
+  "Columns": [
+    {
+      "Name": "Title",
+      "Type": "Single line of text",
+      "Description": "Default SharePoint column (can be renamed to VM Name)"
+    },
+    {
+      "Name": "Date",
+      "Type": "DateTime",
+      "Description": "Date the entry is created"
+    },
+    {
+      "Name": "IT Member",
+      "Type": "Person or Group",
+      "Description": "Auto-filled with logged-in user"
+    },
+    {
+      "Name": "VM Name",
+      "Type": "Single line of text",
+      "Description": "Name of the virtual machine"
+    },
+    {
+      "Name": "Backup Date",
+      "Type": "DateTime",
+      "Description": "Date of the latest backup"
+    },
+    {
+      "Name": "Restore Test Date",
+      "Type": "DateTime",
+      "Description": "Date the restore test was performed"
+    },
+    {
+      "Name": "Status",
+      "Type": "Choice",
+      "Choices": [
+        "Successful",
+        "Warning",
+        "Failed"
+      ],
+      "Description": "Recovery test result"
+    },
+    {
+      "Name": "Comment",
+      "Type": "Multiple lines of text",
+      "Description": "Additional notes or observations"
+    },
+    {
+      "Name": "Attachments",
+      "Type": "Attachments",
+      "Description": "Screenshots or reports"
+    }
+  ]
+}
